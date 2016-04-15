@@ -1,0 +1,53 @@
+{% comment %} 
+This is the base template from which all public pages of the site
+extend. Things common to the whole site are contained here, such as the footer,
+the head meta data and links, css, etc.
+{% endcomment %}
+
+{% load static from staticfiles %}
+   
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+	<title>{% block page_title %}{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Author Name">
+  {% block css_links %}
+  <link href="{% static 'style.css' %}" rel="stylesheet" media="screen">
+  {% endblock %}
+  
+  {% block page_icon %}
+  <link rel="SHORTCUT ICON" href="{% static 'images/favicon.png' %}" />
+  {% endblock %}
+
+  {# Scripts included at the beginning of the page may be inserted here #}
+  {% block head_scripts %}
+  {% endblock %}
+</head>
+
+<body>
+<div class="container">
+    {# The page content block varies depending on the type of page, and may include the navigation sidebar or not #}
+    {% block page_layout %}
+    {% endblock %}
+
+  {% block footer %}
+	<div class="row">
+		<div class="footer">
+			<div class="col-md-10">
+        &copy;20XX - {% now "Y" %} Copyright Holder
+			</div>
+			<div class="col-md-2">
+        <a href="{% contact_email %}" class="footerlinks" style:"align:right;">Contact</a>
+			</div>	
+    </div>
+  </div>
+  {% endblock %}
+</div>
+{# Scripts may be included at the bottom of pages in this block #}
+{% block bottom_scripts %}
+{% endblock %}
+</body>
+</html>

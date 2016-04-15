@@ -1,0 +1,26 @@
+{% extends 'nav_base.html' %}
+
+{% comment %}
+The public home page.
+{% endcomment %}
+
+{% block page_title %}Login{% endblock %}
+
+{% block nav_content %}
+  {% if not user.is_authenticated %}
+    <li><a href="{% url 'registration_page' %}">Registration</a></li>
+    <li><a href="{% url 'login_page' %}">Login</a></li>
+  {% else %}
+    <li><a href="{% url 'user_profile_page' %}">Home</a></li>
+    <li><a href="{% url 'user_settings_page' %}">Settings</a></li>
+    <li><a href="{% url 'faq_page' %}">FAQ</a></li>
+    <li><a href="{% url 'logout_page' %}">Logout</a></li>
+  {% endif %}
+{% endblock %}
+
+{% block header_text %}Important Text{% endblock %}
+{% block page_content %}
+
+<p>Main content for home page goes here.</p>
+
+{% endblock %}

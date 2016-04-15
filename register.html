@@ -1,0 +1,33 @@
+{% extends 'nav_base.html' %}
+
+{% comment %}
+This page is a basic introduction to the site and registration.
+{% endcomment %}
+
+{% block page_title %}Register{% endblock %}
+
+{% block nav_content %}
+  <li><a href="{% url 'login_page' %}">Login</a></li>
+{% endblock %}
+
+{% block header_text %}Site Registration{% endblock %}
+
+{% block page_content %}
+
+  <p>To participate in the site you will need to</p>
+  <ol>
+    <li>
+      <p>Be 18 years old or older;</p>
+    </li>
+    <li>
+      <p>Read the <a href="{% url 'information_page' %}">Information Sheet</a>, which describes 
+      the site, and confirm your desire to participate;</p>
+    </li>
+    <li>
+      <p>Create an account by entering your email address and creating a password; and</p>
+    </li>
+  </ol>
+  <p>To start, please read the <a href="{% url 'information_page' %}">Information Sheet</a>. 
+  If you decide to join the site, you will be guided through the next steps.</p>
+   <p>Thank you for your interest in joining the site.</p>
+{% endblock %}

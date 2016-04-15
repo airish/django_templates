@@ -1,0 +1,32 @@
+{% extends 'nav_base.html' %}
+{# Contains the actual registration form with which to create an account #}
+
+{% block page_title %}
+Create a New Account
+{% endblock %}
+
+{% block nav_content %}
+  <li><a href="{% url 'login_page' %}">Login</a></li>
+{% endblock %}
+
+{% block header_text %}
+Registration Step 2: Create an Account
+{% endblock %}
+
+{% block page_content %}
+  <p>Thank you for deciding to join this website</p>
+  <p>Please create an account below. You will need to enter a working email
+  address and create a password.</p>
+
+  <form id="registration_form" method="POST" action="{% url 'create_account_page' %}">
+    {% csrf_token %}
+    <table class="center">
+      {{ form }}
+    </table>
+    <hr>
+    <div align="center">
+      <input type="submit" value="Submit" />
+    </div>
+  </form>
+
+{% endblock %}

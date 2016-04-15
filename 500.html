@@ -1,0 +1,12 @@
+{# Basic 404 page #}
+{% extends 'nav_base.html' %}
+
+{% block page_title %}Internal Server Error{% endblock %}
+
+{% block header_text %}
+ 500: The server has encountered an unexpected condition and was unable to complete your request.
+{% endblock %}
+
+{% block page_content %}
+<p>Would you like to return to <a href="{% url 'home' %}">the home page?</a></p>
+{% endblock %}

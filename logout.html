@@ -1,0 +1,17 @@
+{% extends 'nav_base.html' %}
+
+{# Basic logout page. #}
+
+{% block page_title %}Logout{% endblock %}
+
+{% block nav_content %}
+	<li><a href="{% url 'registration_page' %}">Registration</a></li>
+	<li><a href="{% url 'login_page' %}">Login</a></li>
+{% endblock %}
+
+{% block header_text %}Site Logout{% endblock %}
+{% block page_content %}
+
+<p>You have successfully logged out of the website.</p>
+
+{% endblock %}

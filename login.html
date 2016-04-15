@@ -1,0 +1,40 @@
+{% extends 'nav_base.html' %}
+
+{% comment %}
+The user login page.
+{% endcomment %}
+
+
+{% block page_title %}
+	Login
+{% endblock %}
+
+{% block nav_content %}
+<li><a href="{% url 'registration_page' %}">Registration</a></li>
+{% endblock %}
+
+{% block header_text %}
+	Site Login
+{% endblock %}
+
+{% block page_content %}
+
+	<p>Welcome to the site.</p>
+	<p>Please login using the email address and password you used to create your account. After you login, you will be taken to your home page.</p>	
+	<p>If you forgot your password, please click forgot password below to have your password sent to you via email.</p>
+
+  <form id="login_form" method="POST" action="{% url 'login_page' %}">
+    {% csrf_token %}
+    <table class="center">
+      {{ form }}
+    </table>
+    <hr>
+    <div align="center"> 
+      <input type="submit" value="Submit" />
+      <hr>
+      <p>
+        <a href="{% url 'forgot_password_page' %}">Forget password?</a>
+      </p>
+    </div>
+  </form>
+{% endblock %}

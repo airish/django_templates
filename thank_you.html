@@ -1,0 +1,29 @@
+{% extends 'nav_base.html' %}
+{# This page thanks the user for registering, and informs them that they must verify their email. #}
+
+{% block page_title %}Thank You For Registering{% endblock %}
+
+{% block nav_content %}
+	<li><a href="{% url 'login_page' %}">Login</a></li>
+{% endblock %}
+
+{% block header_text %}Registration Step 3: Verify Your Email Address{% endblock %}
+{% block page_content %}
+
+
+<p>Thank you for creating an account.</p>
+
+<p>To complete the registration, you will need to verify your email address. A
+verification email message has been sent to the email address you used to
+create your account.</p>
+
+<p>Inside the verification email message will be an Internet link (a URL),
+which you should click to verify your email address.</p>
+
+<p>If after 15 minutes have passed and you have not received a
+verification email message, the message may have been caught by a spam
+filter. Try checking your spam, junk, bulk mail or similar type
+folder for a message from <a href="mailto:{% contact_email %}">{% contact_email %}</a>. If you cannot locate
+the verification email message, please email <a href="mailto:{% contact_email %}">{% contact_email %}</a>, and
+we will be happy to assist you.</p>
+{% endblock %}

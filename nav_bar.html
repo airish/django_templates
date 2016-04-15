@@ -1,0 +1,18 @@
+
+<form id="nav_bar" method="POST">
+  {% load as_range %}
+  {% csrf_token %}
+  <table>
+    <tr>
+      <th align="center">Goto:</th>
+    </tr>
+  {% for section in number_of_sections|as_range %}
+  <tr>
+    <td align="center" style="border: 1px solid black;background: white;">
+      <a href="?sect={{ forloop.counter }}">{{ forloop.counter }}</a>
+    </td>
+  </tr>
+  {% endfor %}
+  </table>
+</form>
+

@@ -1,0 +1,52 @@
+{% extends 'nav_base.html' %}
+
+{% block page_title %}Information Sheet{% endblock %}
+
+{% block head_scripts %}
+<script type="text/javascript">
+  function OnSubmitForm()
+  {
+    if(document.consentform.participate_yes.checked == true)
+    {
+      window.location = "{% url 'create_account_page' %}"
+    }
+    else
+    if(document.consentform.participate_no.checked == true)
+    {
+      window.location = "{% url 'home' %}"
+    }
+    return false;
+  }
+</script>
+{% endblock %}
+
+{% block nav_content %}
+  {% if not user.is_authenticated %}
+    <li><a href="{% url 'registration_page' %}">Registration</a></li>
+    <li><a href="{% url 'login_page' %}">Login</a></li>
+  {% endif %}
+{% endblock %}
+
+{% block page_content %}
+
+
+<div id="page_nav" class="links">
+	
+  <form name="consentform"  onsubmit="return OnSubmitForm();" method="POST" >
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td><input type="radio" id="participate_yes" name="participate" value="yes"><label for="participate_yes"> Yes.</label></td>
+      </tr>
+      <tr>
+        <td><input type="radio" id="participate_no" name="participate" value="no"><label for="participate_no">No.</label></td>
+      </tr>
+    </table>
+    <div align="left">
+      <input type="submit" name="submit" value="Go" />
+    </div>
+  </form>
+
+</div>
+
+{% endblock %}

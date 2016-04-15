@@ -1,0 +1,12 @@
+{# Basic 404 page #}
+{% extends 'nav_base.html' %}
+
+{% block page_title %}Page not found{% endblock %}
+
+{% block header_text %}
+  404: The resource you're looking for couldn't be found.
+{% endblock %}
+
+{% block page_content %}
+<p>Would you like to return to <a href="{% url 'home' %}">the home page?</a></p>
+{% endblock %}
